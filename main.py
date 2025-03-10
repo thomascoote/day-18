@@ -1,37 +1,31 @@
 import turtle
-from random import randint
+from random import randint, randrange
 from turtle import Turtle, Screen
 import random
 
-def shape(sides):
-    total_angle = (sides-2)*180
-    return 180 - (total_angle/sides)
+"""Random direction choices"""
+random_dir_choice = [0,90,180,270]
 
-
+"""Set timmy as Turtle()"""
 timmy = Turtle()
-timmy.shape("turtle")
-timmy.color("red")
+
+"""Use 0-255 colour space"""
 turtle.colormode(255)
 
-print(shape(3))
+"""Set pen thickness"""
+timmy.pensize(10)
 
-##TODO 3 to 10 sided shapes, random colour, 100 length per side, all overlaid --- (n-2)*180
+walk = True
+while walk:
+    r = randint(0, 255)
+    g = randint(0, 255)
+    b = randint(0, 255)
 
-
-
-for sides in range (3,11):
-    print(f"Next shape has {sides} sides")
-    r = randint(0,255)
-    g = randint(0,255)
-    b = randint(0,255)
-
-    i = sides
     timmy.color(r,g,b)
-    while i > 0:
-        turn_angle = shape(sides)
-        timmy.right(turn_angle)
-        timmy.forward(100)
-        i -= 1
+    timmy_choice = randrange(0,4)
+
+    timmy.forward(20)
+    timmy.right(random_dir_choice[timmy_choice])
 
 screen = Screen()
 screen.exitonclick()
