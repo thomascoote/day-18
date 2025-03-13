@@ -13,8 +13,12 @@ timmy = Turtle()
 turtle.colormode(255)
 
 """Set pen thickness"""
-timmy.pensize(10)
+timmy.pensize(3)
 
+"""Turtle Speed"""
+timmy.speed(20)
+
+heading_offset = 0
 walk = True
 while walk:
     r = randint(0, 255)
@@ -24,8 +28,11 @@ while walk:
     timmy.color(r,g,b)
     timmy_choice = randrange(0,4)
 
-    timmy.forward(20)
-    timmy.right(random_dir_choice[timmy_choice])
+    timmy.circle(200,None,50)
+
+    heading_offset += 5
+    timmy.setheading(heading_offset)
+
 
 screen = Screen()
 screen.exitonclick()
